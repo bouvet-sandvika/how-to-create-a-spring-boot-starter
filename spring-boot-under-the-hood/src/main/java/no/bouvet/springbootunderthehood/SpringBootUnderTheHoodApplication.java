@@ -16,9 +16,9 @@ public class SpringBootUnderTheHoodApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner() {
+	public CommandLineRunner commandLineRunner(ObjectMapper objectMapper) {
 		return (args) -> {
-			err.println(new ObjectMapper().writeValueAsString(new Person("Ola", "Nordmann")));
+			err.println(objectMapper.writeValueAsString(new Person("Ola", "Nordmann")));
 		};
 	}
 
