@@ -2,6 +2,7 @@ package no.bouvet.springbootunderthehood;
 
 import static java.lang.System.err;
 
+import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +14,11 @@ public class SpringBootUnderTheHoodApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootUnderTheHoodApplication.class, args);
+	}
+
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper(new JsonFactoryBuilder().quoteChar('|').build());
 	}
 
 	@Bean
